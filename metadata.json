@@ -1,0 +1,5 @@
+{
+  "name": "Prognos Sports Predictor",
+  "description": "An AI-powered sports prediction application that leverages simulated multi-source data analytics to provide insightful game outcome predictions. Features a clean, simple UI and a sophisticated AI assistant.",
+  "requestFramePermissions": []
+}
