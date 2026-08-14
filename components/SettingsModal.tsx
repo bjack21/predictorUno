@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, memo } from 'react';
 import type { UserSettings, ConfidenceFilterLevel, OddsFormat } from '../types';
 import { SPORTS } from '../constants';
 
@@ -9,7 +10,7 @@ interface SettingsModalProps {
   onSave: (newSettings: UserSettings) => void;
 }
 
-export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, currentSettings, onSave }) => {
+export const SettingsModal: React.FC<SettingsModalProps> = memo(({ isOpen, onClose, currentSettings, onSave }) => {
   const [settings, setSettings] = useState<UserSettings>(currentSettings);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, c
   };
 
   const confidenceOptions: ConfidenceFilterLevel[] = ['All', 'High', 'Medium', 'Low'];
-  const oddsOptions: OddsFormat[] = ['American', 'Decimal'];
+  const oddsOptions: OddsFormat[] = ['American', 'Decimal', 'Fractional'];
 
   return (
     <div 
@@ -103,4 +104,4 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, c
       </div>
     </div>
   );
-};
+});
